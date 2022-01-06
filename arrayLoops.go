@@ -37,4 +37,14 @@ func main() {
 	for index, shark := range sharks {
 		fmt.Println(index, shark)
 	}
+
+	// Use a _blank identifier for the "index" variable if we don't want to show the index of a for...range loop.
+	for _, shark := range sharks {
+		fmt.Println(shark)
+	}
+
+	// If we don't need the value variable, we can assign that to the blank identifier instead.
+	for index, _ := range sharks {
+		fmt.Println(index)
+	}
 }
