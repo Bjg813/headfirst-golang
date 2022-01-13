@@ -74,4 +74,28 @@ func main() {
 	slice5 := underlyingArray[1:]
 	fmt.Println(slice5)
 	// [b c d e]
+
+	// Slices are just a view of the underlying array.
+	// Think of slices as a microscope only being able to look at a portion of the contents of a slide.
+	// Slices can overlap as well, slices can be a view into its own subset of the array's elements.
+	array3 := [5]string{"a", "b", "c", "d", "e"}
+	slice6 := array3[0:3]
+	slice7 := array3[2:5]
+	fmt.Println(slice6, slice7)
+	// [a b c] [c d e]
+
+	// NOTE: Be careful about a slice.
+	// A slice is just a view into the contents of an array.
+	// If you change the underlying array, those changes will also be visible within the slice!
+	ogArray := [5]string{"Chappelle", "Tupac", "Biggie", "Tiger", "Tony"}
+	rappers := ogArray[1:3]
+	fmt.Println(rappers)
+	// [Tupac Biggie]
+	// If you change the original underlying array ogArray to "X" at the second element, you change the view of the slice.
+	ogArray[1] = "X"
+	fmt.Println(rappers)
+	// [X Biggie]
+
+	// Since it is a problem that if you change the underlying array, the slice view changes.
+	// It is recommended to create an array using the "make" function or with a slice literal instead.
 }
