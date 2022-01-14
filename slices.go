@@ -16,7 +16,7 @@ func main() {
 	fmt.Println(notes[0])
 	fmt.Println(notes[1])
 
-	// You don't have to declare a slice in two seperate steps though, you can use a short variable.
+	// You don't have to declare a slice in two separate steps though, you can use a short variable.
 	primes := make([]int, 5)
 	primes[0] = 2
 	primes[1] = 3
@@ -98,4 +98,54 @@ func main() {
 
 	// Since it is a problem that if you change the underlying array, the slice view changes.
 	// It is recommended to create an array using the "make" function or with a slice literal instead.
+	sliceMake := make([]string, 4)
+	sliceMake[0] = "first"
+	fmt.Println(sliceMake)
+	// [first   ]
+
+	sliceLiteral := []string{"a", "b"}
+	fmt.Println(sliceLiteral)
+	// [a b]
+
+	// Slice "append" function you can add on more values without having to keep track of what index you want to assign it to.
+	// NOTE: Only assign the return value back to the same slice variable you passed to append, this way we don't have to worry if the underlying array gets changed.
+	sliceAppend := []string{"a", "b"}
+	fmt.Println(sliceAppend, len(sliceAppend))
+	// [a b] 2
+	// Return the sliceAppend value back to the same slice variable.
+	sliceAppend = append(sliceAppend, "c")
+	fmt.Println(sliceAppend, len(sliceAppend))
+	// [a b c] 3
+	sliceAppend = append(sliceAppend, "d", "e", "f")
+	fmt.Println(sliceAppend, len(sliceAppend))
+	// [a b c d e f] 6
+
+	// If you don't assign any values to a slice they default to 0, empty string, false
+	floatSlice := make([]float64, 10)
+	boolSlice := make([]bool, 10)
+	fmt.Println(floatSlice, boolSlice)
+	// [0 0 0 0 0 0 0 0 0 0] [false false false false false false false false false false]
+
+	// Unlike arrays the slice variable itself also has a zero value: nil.
+	// This means you don't have to worry about whether you have an empty slice or a nil slice, it will "just work"!
+	var intSlice []int
+	fmt.Printf("intSlice: %#v\n", intSlice)
+	// intSlice: []int(nil)
+
+	// Functions are intentionally written to treat nil slices as if it were an empty slice.
+	fmt.Println(len(intSlice))
+	// 0
+
+	// The append function treats nil slices like empty slices.
+	intSlice = append(intSlice, 27)
+	fmt.Printf("intSlice: %#v\n", intSlice)
+	// intSlice: []int{27}
+
+	// Create a slice that has no value assigned to it then add a new value with the append function.
+	var nilSlice []string
+	if len(nilSlice) == 0 {
+		nilSlice = append(nilSlice, "first item")
+	}
+	fmt.Printf("%#v\n", nilSlice)
+	// []string{"first item"}
 }
