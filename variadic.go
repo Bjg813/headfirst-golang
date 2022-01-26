@@ -1,5 +1,5 @@
 // Variadic function is one that can be called with a varying number of arguments by using an ellipsis(...).
-/// To make a function variadic us an ellipsis(...) before the type of the last (or only) function paramenter in the function declaration.
+/// To make a function variadic us an ellipsis(...) before the type of the last (or only) function parameter in the function declaration.
 package main
 
 import (
