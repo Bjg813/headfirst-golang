@@ -42,9 +42,9 @@ func main() {
 	fmt.Println(isPrime[7]) // true
 
 	// Map literals are great if you know the keys and values you want your map to have in advance.
-	pokemon := map[string]int{"pickachu": 1, "bulbasaur": 2, "geodude": 3}
-	fmt.Println(pokemon["pickachu"]) // 1
-	fmt.Println(pokemon["geodude"])  // 3
+	pokemon := map[string]int{"pikachu": 1, "bulbasaur": 2, "geodude": 3}
+	fmt.Println(pokemon["pikachu"]) // 1
+	fmt.Println(pokemon["geodude"]) // 3
 	flies := map[string]string{
 		"winter": "midge",
 		"spring": "leech",
